@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:vcapp/view/home/view/home_view.dart';
+import 'package:vcapp/feature/home/view/home_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,9 +20,29 @@ class MyApp extends StatelessWidget {
           elevation: 0,
           systemOverlayStyle: SystemUiOverlayStyle.dark,
         ),
+        textTheme: const TextTheme(
+          headline4: TextStyle(
+            color: Color(0xff262d53),
+            fontSize: 24.0,
+           fontWeight: FontWeight.bold,
+           fontFamily: 'open_sans',
+          ),
+          headline5: TextStyle(
+            color: Colors.white,
+            fontSize: 18.0,
+            fontWeight: FontWeight.normal,
+            fontFamily: 'poppins_medium',
+          ),
+          headline6: TextStyle(
+            color: Color(0xff585858),
+            fontSize: 16,
+            fontWeight: FontWeight.normal,
+            fontFamily: 'poppins',
+          )
+        )
       ),
       title: "Cv App",
-      home: HomeView(),
+      home: const HomeView(),
     );
   }
 }
