@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:vcapp/feature/home/view/home_view.dart';
+import 'package:vcapp/product/constant/color.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(
-        backgroundColor: const Color(0xfff7F6FB),
+        backgroundColor: zhenZhuBaiPearl,
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
           elevation: 0,
@@ -22,19 +23,19 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: const TextTheme(
           headline4: TextStyle(
-            color: Color(0xff262d53),
+            color: blueDepths,
             fontSize: 24.0,
            fontWeight: FontWeight.bold,
            fontFamily: 'open_sans',
           ),
           headline5: TextStyle(
-            color: Colors.white,
+            color: white,
             fontSize: 18.0,
             fontWeight: FontWeight.normal,
             fontFamily: 'poppins_medium',
           ),
           headline6: TextStyle(
-            color: Color(0xff585858),
+            color: shadowMountain,
             fontSize: 16,
             fontWeight: FontWeight.normal,
             fontFamily: 'poppins',

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vcapp/feature/add_corporate/view/add_corporate_view.dart';
 import 'package:vcapp/feature/register/view/register_view.dart';
+import 'package:vcapp/product/constant/color.dart';
 import 'package:vcapp/product/padding/page_padding.dart';
 import 'package:kartal/kartal.dart';
 import 'package:vcapp/product/widget/elevated_button_widget.dart';
@@ -14,19 +15,32 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   final String _loginName = 'asset/images/login.png';
+  final String _loginContinue = 'Login to continue';
+  final String _login = 'Login';
+  final String _email = 'Email';
+  final String _password = 'Password';
+  final String _signIn = 'Sign In';
+  final String _forgotPassword = 'Forgot Password?';
+  final String _account = 'Don’t have an account?';
+  final String _register = ' Register Now';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [IconButton(onPressed: () {
-          Navigator.pop(context,true);
-        }, icon: const Icon(Icons.help_outline), color: Colors.black)],
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.pop(context, true);
+              },
+              icon: const Icon(Icons.help_outline),
+              color: black)
+        ],
         leading: IconButton(
             onPressed: () {},
             icon: const Icon(
               Icons.arrow_back_ios_new_outlined,
-              color: Color(0xff262d53),
+              color: blueDepths,
             )),
       ),
       body: Padding(
@@ -45,13 +59,13 @@ class _LoginViewState extends State<LoginView> {
                   ),
                 ),
                 Text(
-                  'Login',
+                  _login,
                   style: Theme.of(context).textTheme.headline4,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5),
                   child: Text(
-                    'Login to continue',
+                    _loginContinue,
                     style: Theme.of(context).textTheme.headline6,
                   ),
                 ),
@@ -61,26 +75,26 @@ class _LoginViewState extends State<LoginView> {
                 Container(
                   height: 291,
                   width: 336,
-                  color: Colors.white,
+                  color: white,
                   child: Padding(
                     padding: const EdgeInsets.only(left: 25, right: 25),
                     child: Column(
                       children: [
-                        const _TextFormField(
-                          hintText: 'Email',
+                        _TextFormField(
+                          hintText: _email,
                           keyboardType: TextInputType.emailAddress,
                         ),
                         SizedBox(
                           height: context.dynamicHeight(0.01),
                         ),
-                        const _TextFormField(
-                          hintText: 'Password',
+                        _TextFormField(
+                          hintText: _password,
                           keyboardType: TextInputType.visiblePassword,
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 31),
                           child: ElevatedButtonWidget(
-                            title: 'Sign In',
+                            title: _signIn,
                             onPressed: () {
                               Navigator.push(
                                   context,
@@ -88,10 +102,10 @@ class _LoginViewState extends State<LoginView> {
                                     builder: (context) => const AddCorporate(),
                                   ));
                             },
-                            color: const Color(0xfff30100),
+                            color: spectrumRed,
                           ),
                         ),
-                        TextButton(onPressed: () {}, child: const Text('Forgot Password?')),
+                        TextButton(onPressed: () {}, child: Text(_forgotPassword)),
                       ],
                     ),
                   ),
@@ -100,7 +114,7 @@ class _LoginViewState extends State<LoginView> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'Don’t have an account?',
+                      _account,
                       style: Theme.of(context).textTheme.headline6,
                     ),
                     TextButton(
@@ -111,7 +125,7 @@ class _LoginViewState extends State<LoginView> {
                                 builder: (context) => const RegisterView(),
                               ));
                         },
-                        child: const Text(' Register Now'))
+                        child: Text(_register))
                   ],
                 )
               ],
@@ -119,18 +133,6 @@ class _LoginViewState extends State<LoginView> {
           ),
         ),
       ),
-    );
-  }
-
-  AppBar _appBar() {
-    return AppBar(
-      actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.question_mark_outlined), color: Colors.black)],
-      leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.arrow_back_ios_new_outlined,
-            color: Color(0xff262d53),
-          )),
     );
   }
 }
@@ -147,7 +149,7 @@ class _TextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       keyboardType: keyboardType,
-      decoration: InputDecoration(hintText: hintText, focusColor: Colors.black),
+      decoration: InputDecoration(hintText: hintText, focusColor: black),
       style: Theme.of(context).textTheme.headline6,
     );
   }

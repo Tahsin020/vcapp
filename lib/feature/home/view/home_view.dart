@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vcapp/feature/login/view/login_view.dart';
 import 'package:vcapp/feature/register/view/register_view.dart';
+import 'package:vcapp/product/constant/color.dart';
 import 'package:vcapp/product/padding/page_padding.dart';
 import 'package:vcapp/product/widget/elevated_button_widget.dart';
 
@@ -13,6 +14,11 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> with SingleTickerProviderStateMixin {
   late final TabController _tabController;
+  final String _homeImagePath = 'asset/images/home.png';
+  final String _visitingCard = 'Visiting Card';
+  final String _lorem = 'Lorem ipsum, or lipsum as it is sometimes known';
+  final String _signIn = 'Sign In';
+  final String _signUp = 'Sign Up';
 
   @override
   void initState() {
@@ -29,52 +35,42 @@ class _HomeViewState extends State<HomeView> with SingleTickerProviderStateMixin
           child: Center(
             child: Column(
               children: [
-                const SizedBox(
-                  height: 20,
-                ),
+                _sizedBox(20),
                 Container(
-                  width: 182,
                   height: 182,
+                  width: 182,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.white,
+                    color: white,
                   ),
-                  child: Image.asset("asset/images/image4.png"),
+                  child: Image.asset(_homeImagePath),
                 ),
-                const SizedBox(
-                  height: 26,
-                ),
+                _sizedBox(26),
                 Text(
-                  'Visiting Card',
+                  _visitingCard,
                   style: Theme.of(context).textTheme.headline4,
                 ),
-                const SizedBox(
-                  height: 14,
-                ),
+                _sizedBox(14),
                 Text(
-                  'Lorem ipsum, or lipsum as it is sometimes known',
+                  _lorem,
                   style: Theme.of(context).textTheme.headline6,
                 ),
-                const SizedBox(
-                  height: 18,
-                ),
+                _sizedBox(18),
                 TabPageSelector(
                   controller: _tabController,
                 ),
-                const SizedBox(
-                  height: 89,
-                ),
+                _sizedBox(89),
                 Container(
                   height: 233,
                   width: 336,
-                  color: Colors.white,
+                  color: white,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 40.0, horizontal: 24),
+                    padding: HomePadding.symmetricPadding,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         ElevatedButtonWidget(
-                          title: 'Sign In',
+                          title: _signIn,
                           onPressed: () {
                             Navigator.push(
                                 context,
@@ -82,14 +78,18 @@ class _HomeViewState extends State<HomeView> with SingleTickerProviderStateMixin
                                   builder: (context) => const LoginView(),
                                 ));
                           },
-                          color: const Color(0xfff30100),
+                          color: spectrumRed,
                         ),
                         ElevatedButtonWidget(
-                          title: 'Sign Up',
+                          title: _signUp,
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterView(),));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const RegisterView(),
+                                ));
                           },
-                          color: const Color(0xff1050a0),
+                          color: sonicBlue,
                         ),
                       ],
                     ),
@@ -100,4 +100,14 @@ class _HomeViewState extends State<HomeView> with SingleTickerProviderStateMixin
           )),
     );
   }
+
+  SizedBox _sizedBox(double? height) {
+    return SizedBox(
+      height: height,
+    );
+  }
+}
+
+class HomePadding {
+  static const EdgeInsets symmetricPadding = EdgeInsets.symmetric(vertical: 40.0, horizontal: 24);
 }

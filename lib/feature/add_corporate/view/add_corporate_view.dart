@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vcapp/product/constant/color.dart';
 import 'package:vcapp/product/padding/page_padding.dart';
 import 'package:vcapp/product/widget/elevated_button_widget.dart';
 
@@ -17,13 +18,13 @@ class _AddCorporateState extends State<AddCorporate> {
     return Scaffold(
       appBar: AppBar(
         actions: [IconButton(onPressed: () {
-        }, icon: const Icon(Icons.help_outline), color: Colors.black)],
+        }, icon: const Icon(Icons.help_outline), color: black)],
         centerTitle: true,
         title: Text(
           'Send Work Card',
           style: Theme.of(context).textTheme.headline5?.copyWith(
               fontSize: 14.0,
-              color: const Color(0xff1050a0),
+              color: sonicBlue,
               fontFamily: 'poppins_semibold',
               fontWeight: FontWeight.normal),
         ),
@@ -31,7 +32,7 @@ class _AddCorporateState extends State<AddCorporate> {
             onPressed: () {},
             icon: const Icon(
               Icons.arrow_back_ios_new_outlined,
-              color: Color(0xff262d53),
+              color: blueDepths,
             )),
       ),
       body: Padding(
@@ -45,7 +46,7 @@ class _AddCorporateState extends State<AddCorporate> {
                   width: 66,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color(0xff1050a0),
+                    color: sonicBlue,
                   ),
                   child: Image.asset('asset/images/card.png'),
                 ),
@@ -61,7 +62,7 @@ class _AddCorporateState extends State<AddCorporate> {
                   child: Container(
                     height: 516,
                     // width: 336,
-                    color: Colors.white,
+                    color: white,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 11, horizontal: 25),
                       child: Column(
@@ -93,10 +94,10 @@ class _AddCorporateState extends State<AddCorporate> {
                             style: Theme.of(context).textTheme.headline6,
                             decoration: InputDecoration(
                               helperText: 'Optional',
-                              focusColor: Colors.black,
+                              focusColor: black,
                               helperStyle: Theme.of(context).textTheme.headline5?.copyWith(
                                   fontSize: 14.0,
-                                  color: const Color(0xff1050a0),
+                                  color: sonicBlue,
                                   fontFamily: 'poppins_semibold',
                                   fontWeight: FontWeight.normal),
                               label: Text('Message', style: Theme.of(context).textTheme.headline6),
@@ -112,7 +113,7 @@ class _AddCorporateState extends State<AddCorporate> {
                                 'Send via VC App',
                                 style: Theme.of(context).textTheme.headline5?.copyWith(
                                     fontSize: 14.0,
-                                    color: const Color(0xff1050a0),
+                                    color: sonicBlue,
                                     fontFamily: 'poppins_semibold',
                                     fontWeight: FontWeight.normal),
                               ),
@@ -123,8 +124,8 @@ class _AddCorporateState extends State<AddCorporate> {
                                     isSwitched = value;
                                   });
                                 },
-                                activeTrackColor: Colors.blue,
-                                activeColor: Colors.blue,
+                                activeTrackColor: sonicBlue,
+                                activeColor: sonicBlue,
                               )
                             ],
                           ),
@@ -132,7 +133,7 @@ class _AddCorporateState extends State<AddCorporate> {
                             padding: const EdgeInsets.only(top: 21, bottom: 18),
                             child: ElevatedButtonWidget(
                               title: 'Send',
-                              color: const Color(0xfff30100),
+                              color: spectrumRed,
                               onPressed: () {},
                             ),
                           ),
@@ -150,7 +151,7 @@ class _AddCorporateState extends State<AddCorporate> {
                               ),
                               _CustomIconGes(
                                 icon: Icons.message_outlined,
-                                data: 'Code',
+                                data: 'Text',
                               ),
                             ],
                           )
@@ -184,7 +185,7 @@ class _CustomIconGes extends StatelessWidget {
         children: [
           Icon(
             icon,
-            color: const Color(0xff1050a0),
+            color: sonicBlue,
             size: 40,
           ),
           SizedBox(
@@ -192,7 +193,7 @@ class _CustomIconGes extends StatelessWidget {
           ),
           Center(
             child: Text(data,
-                style: Theme.of(context).textTheme.headline6?.copyWith(color: const Color(0xff12549e), fontSize: 11)),
+                style: Theme.of(context).textTheme.headline6?.copyWith(color: sonicBlue, fontSize: 11)),
           )
         ],
       ),
