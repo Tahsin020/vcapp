@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vcapp/product/padding/page_padding.dart';
 import 'package:vcapp/product/widget/elevated_button_widget.dart';
@@ -11,11 +10,14 @@ class AddCorporate extends StatefulWidget {
 }
 
 class _AddCorporateState extends State<AddCorporate> {
+  bool isSwitched = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.help_outline), color: Colors.black)],
+        actions: [IconButton(onPressed: () {
+        }, icon: const Icon(Icons.help_outline), color: Colors.black)],
         centerTitle: true,
         title: Text(
           'Send Work Card',
@@ -101,9 +103,10 @@ class _AddCorporateState extends State<AddCorporate> {
                             ),
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.03,
+                            height: MediaQuery.of(context).size.height * 0.01,
                           ),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 'Send via VC App',
@@ -113,13 +116,43 @@ class _AddCorporateState extends State<AddCorporate> {
                                     fontFamily: 'poppins_semibold',
                                     fontWeight: FontWeight.normal),
                               ),
-                            
-                              
+                              Switch(
+                                value: isSwitched,
+                                onChanged: (value) {
+                                  setState(() {
+                                    isSwitched = value;
+                                  });
+                                },
+                                activeTrackColor: Colors.blue,
+                                activeColor: Colors.blue,
+                              )
                             ],
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 21),
-                            child: ElevatedButtonWidget(title: 'Send',color: const Color(0xfff30100),onPressed: (){},),
+                            padding: const EdgeInsets.only(top: 21, bottom: 18),
+                            child: ElevatedButtonWidget(
+                              title: 'Send',
+                              color: const Color(0xfff30100),
+                              onPressed: () {},
+                            ),
+                          ),
+                          //SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: const [
+                              _CustomIconGes(
+                                icon: Icons.qr_code_scanner_outlined,
+                                data: 'Code',
+                              ),
+                              _CustomIconGes(
+                                icon: Icons.email_outlined,
+                                data: 'Email',
+                              ),
+                              _CustomIconGes(
+                                icon: Icons.message_outlined,
+                                data: 'Code',
+                              ),
+                            ],
                           )
                         ],
                       ),
@@ -130,6 +163,38 @@ class _AddCorporateState extends State<AddCorporate> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _CustomIconGes extends StatelessWidget {
+  const _CustomIconGes({
+    Key? key,
+    required this.icon,
+    required this.data,
+  }) : super(key: key);
+  final IconData? icon;
+  final String data;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      child: Column(
+        children: [
+          Icon(
+            icon,
+            color: const Color(0xff1050a0),
+            size: 40,
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.01,
+          ),
+          Center(
+            child: Text(data,
+                style: Theme.of(context).textTheme.headline6?.copyWith(color: const Color(0xff12549e), fontSize: 11)),
+          )
+        ],
       ),
     );
   }

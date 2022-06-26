@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vcapp/feature/add_corporate/view/add_corporate_view.dart';
 import 'package:vcapp/feature/register/view/register_view.dart';
-import 'package:vcapp/product/appbar/appbar.dart';
 import 'package:vcapp/product/padding/page_padding.dart';
 import 'package:kartal/kartal.dart';
 import 'package:vcapp/product/widget/elevated_button_widget.dart';
@@ -20,7 +19,9 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.help_outline), color: Colors.black)],
+        actions: [IconButton(onPressed: () {
+          Navigator.pop(context,true);
+        }, icon: const Icon(Icons.help_outline), color: Colors.black)],
         leading: IconButton(
             onPressed: () {},
             icon: const Icon(
