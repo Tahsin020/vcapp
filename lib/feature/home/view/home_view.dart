@@ -59,7 +59,7 @@ class _HomeViewState extends State<HomeView> with SingleTickerProviderStateMixin
                 TabPageSelector(
                   controller: _tabController,
                 ),
-                _sizedBox(89),
+                _sizedBox(MediaQuery.of(context).size.height * 0.05),
                 Container(
                   height: 233,
                   width: 336,
